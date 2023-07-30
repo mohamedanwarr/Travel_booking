@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:travelbooking/ui/Splash/SplashScreen.dart';
 
 void main() {
-  runApp( TravelBooking());
+  runApp(TravelBooking());
 }
 
 class TravelBooking extends StatelessWidget {
@@ -11,13 +12,14 @@ class TravelBooking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+        title: 'Flutter Demo',
+        theme: ThemeData(
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
