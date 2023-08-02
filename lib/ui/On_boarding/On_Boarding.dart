@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:travelbooking/ui/On_boarding/listonboarding.dart';
+
+import '../ authentication/Login/LoginScreen.dart';
+import '../../generated/l10n.dart';
 
 class On_Boarding extends StatefulWidget {
   const On_Boarding({Key? key}) : super(key: key);
@@ -11,14 +14,13 @@ class On_Boarding extends StatefulWidget {
 
 class _On_BoardingState extends State<On_Boarding> {
   int curruntindex = 0;
-  PageController ?_controller;
+  PageController? _controller;
 
   @override
   void initState() {
     super.initState();
     _controller = PageController(initialPage: 0);
   }
-
 
   @override
   void dispose() {
@@ -28,6 +30,22 @@ class _On_BoardingState extends State<On_Boarding> {
 
   @override
   Widget build(BuildContext context) {
+    List<onboardinglist> content = [
+      onboardinglist(
+          image: 'assets/images/lets travel  .png',
+          titleKey: S.of(context).lets_Travel,
+          discribtionKey: S.of(context).lets_Travel_desc),
+      onboardinglist(
+          image: 'assets/images/Illustratiion.png',
+          titleKey: S.of(context).plan_a_trip,
+          discribtionKey: S.of(context).plan_a_trip_desc),
+      onboardinglist(
+          image: 'assets/images/Book a flight.png',
+          titleKey: S.of(context).book_a_flight,
+          discribtionKey: S.of(context).book_a_flight_desc)
+    ];
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: PageView.builder(
         controller: _controller,
@@ -39,110 +57,119 @@ class _On_BoardingState extends State<On_Boarding> {
         itemCount: content.length,
         itemBuilder: (BuildContext context, int index) {
           return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-          Padding(
-          padding:
-          const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          child: Image.asset(
-          content[index].image,
-          width: 321.31,
-          height: 294.94,
-          ),
-          ),
-          Text(
-          content[index].title,
-          style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-          fontSize: 32,
-          ),
-          ),
-          SizedBox(height: 20),
-          Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Text(
-          content[index].discribtion,
-          style: TextStyle(
-          fontWeight: FontWeight.w500,
-          color: Colors.grey,
-          fontSize: 18,
-          ),
-          ),
-          ),
-          SizedBox(height: 50),
-          Container(
-          child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(content.length, (index) =>
-          buildDot(index, context))
-          ),
-          ),
-          SizedBox(height: 50),
+            mainAxisAlignment: MainAxisAlignment.center,
 
-          Padding(
-          padding:
-          const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-          TextButton(
-          style: ButtonStyle(
-            foregroundColor:MaterialStatePropertyAll(Color(0xFF312DA4)) ,
-          elevation: MaterialStatePropertyAll(5),
-          textStyle: MaterialStatePropertyAll(TextStyle(
-          fontSize: 18,
-          color: Color(0xFF312DA4),
-          fontWeight: FontWeight.bold))),
-          onPressed: () {},
-          child: Text('Skip')),
-          GestureDetector(
-          onTap: (){
-          if(curruntindex == content.length -1){}
-          _controller!.nextPage(
-          duration: Duration(milliseconds: 100),
-          curve: Curves.bounceIn);
-          },
-          child: Container(
-          width: 100,
-          height: 40,
-          decoration: BoxDecoration(
-
-          boxShadow: [
-          BoxShadow(
-          blurRadius: 1,
-          offset: Offset(0, 1)
-          )
-          ],
-          color: Color(0xFFFEFEFE),
-          borderRadius: BorderRadius.circular(50)),
-          child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-          CircleAvatar(
-          child: Icon(
-          Icons.arrow_forward_ios_outlined,
-          color: Colors.white,
-          size: 15,
-          ),
-          radius: 15,
-          backgroundColor: Color(0xFF312DA4),
-          ),
-          Text(curruntindex == content.length -1 ?
-          'Continue':'Next',
-          style: TextStyle(
-          fontWeight: FontWeight.bold, fontSize: 15),
-          )
-          ],
-          ),
-          ),
-          )
-          ],
-          ),
-          ),
-
-          ],
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                child: Image.asset(content[index].image,
+                    width: width * 2,
+                    // 321.31,
+                    height: height * 0.4
+                    //294.94,
+                    ),
+              ),
+              Text(
+                content[index].titleKey,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 32,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Expanded(
+                  child: Text(
+                    content[index].discribtionKey,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 50),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                      content.length, (index) => buildDot(index, context))),
+              const SizedBox(height: 70),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                        style: const ButtonStyle(
+                            foregroundColor:
+                                MaterialStatePropertyAll(Color(0xFF312DA4)),
+                            elevation: MaterialStatePropertyAll(5),
+                            textStyle: MaterialStatePropertyAll(TextStyle(
+                                fontSize: 15,
+                                color: Color(0xFF312DA4),
+                                fontWeight: FontWeight.bold))),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginScreen()));
+                        },
+                        child: Text(S.of(context).skip)),
+                    GestureDetector(
+                      onTap: () {
+                        if (curruntindex == content.length - 1) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginScreen()));
+                        }
+                        _controller!.nextPage(
+                            duration: const Duration(milliseconds: 100),
+                            curve: Curves.bounceIn);
+                      },
+                      child: Container(
+                        width: width * 0.250,
+                        height: height * 0.050,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              const BoxShadow(
+                                  blurRadius: 1, offset: Offset(0, 1))
+                            ],
+                            color: const Color(0xFFFEFEFE),
+                            borderRadius: BorderRadius.circular(50)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const CircleAvatar(
+                              radius: 15,
+                              backgroundColor: Color(0xFF312DA4),
+                              child: Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                color: Colors.white,
+                                size: 15,
+                              ),
+                            ),
+                            Text(
+                              curruntindex == content.length - 1
+                                  ? S.of(context).continue_button
+                                  : S.of(context).next,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
           );
         },
       ),
@@ -151,13 +178,14 @@ class _On_BoardingState extends State<On_Boarding> {
 
   Container buildDot(int index, BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 6),
+      margin: const EdgeInsets.only(right: 6),
       height: 10,
       width: curruntindex == index ? 10 : 10,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: curruntindex == index ? Color(0xFF312DA4) : Color(0xFFCCD1FB)
-      ),
+          color: curruntindex == index
+              ? const Color(0xFF312DA4)
+              : const Color(0xFFCCD1FB)),
     );
   }
 }
