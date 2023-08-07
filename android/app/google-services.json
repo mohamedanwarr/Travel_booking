@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "632782333965",
+    "project_id": "ngccjcc",
+    "storage_bucket": "ngccjcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632782333965:android:01e7b84ad6fe451ca00d44",
+        "android_client_info": {
+          "package_name": "com.example.travelbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632782333965-f3fpnj71fjmjbuf6atg9r9ebdo86dcmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARjJ21sw6VNyV72F1xYDJvW4-daTR-wdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632782333965-f3fpnj71fjmjbuf6atg9r9ebdo86dcmb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

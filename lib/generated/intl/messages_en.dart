@@ -27,20 +27,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("or Register with"),
         "book_a_flight": MessageLookupByLibrary.simpleMessage("Book a Flight"),
         "book_a_flight_desc": MessageLookupByLibrary.simpleMessage(
-            "Fly to your desired destinations with ease.Find the best deals on flights, compare prices, and book your tickets hassle-free. Your journey starts with a simple click"),
+            "Fly to your desired destinations with ease.Find the best deals on flights,compare prices, and book your tickets hassle-free,Your journey starts with a simple click"),
         "confirm_password":
-            MessageLookupByLibrary.simpleMessage("Confirm your password"),
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "continue_button": MessageLookupByLibrary.simpleMessage("Continue"),
+        "email_register": MessageLookupByLibrary.simpleMessage("Email"),
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_password":
             MessageLookupByLibrary.simpleMessage("Enter your password"),
         "forget_password":
-            MessageLookupByLibrary.simpleMessage("Forget Password"),
+            MessageLookupByLibrary.simpleMessage("Forget Password ?"),
+        "forget_password_desc": MessageLookupByLibrary.simpleMessage(
+            "Don\'t worry! It occurs. Please enter the email address linked with your account."),
         "have_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "lets_Travel": MessageLookupByLibrary.simpleMessage("Let\'s Travel"),
         "lets_Travel_desc": MessageLookupByLibrary.simpleMessage(
-            "Embark on exciting adventures and explore new horizons.,Discover breathtaking landscapes, vibrant cultures,and unforgettable experiences as you wander the world"),
+            "Embark on exciting adventures and explore new horizons,Discover breathtaking landscapes,vibrant cultures,and unforgettable experiences as you wander the world"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_button": MessageLookupByLibrary.simpleMessage("Login"),
         "login_desc": MessageLookupByLibrary.simpleMessage(
@@ -48,14 +51,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
+        "password_register": MessageLookupByLibrary.simpleMessage(" Password"),
         "phone_account": MessageLookupByLibrary.simpleMessage("Phone number"),
         "plan_a_trip": MessageLookupByLibrary.simpleMessage("Plan a Trip"),
         "plan_a_trip_desc": MessageLookupByLibrary.simpleMessage(
-            "Get ready to plan your dream getaway.\'Whether it\'s a serene beach retreat, a thrilling mountain hike,or an urban escapade, we\'ve got you covered with expert travel tips and recommendations"),
+            "Get ready to plan your dream getaway,\'Whether it\'s a serene beach retreat,a thrilling mountain hike,or an urban escapade,we\'ve got you covered with expert travel tips and recommendations"),
         "register_button": MessageLookupByLibrary.simpleMessage("Register"),
         "register_desc": MessageLookupByLibrary.simpleMessage(
             "Hello! Register to get started "),
         "register_way": MessageLookupByLibrary.simpleMessage("Register Now"),
+        "remember_password":
+            MessageLookupByLibrary.simpleMessage("Remember Password ?"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username")
       };

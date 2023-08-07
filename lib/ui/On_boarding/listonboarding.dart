@@ -5,3 +5,4 @@ class onboardinglist{
   String discribtionKey ;
   onboardinglist({required this.image , required this.titleKey, required this.discribtionKey});
 }
+

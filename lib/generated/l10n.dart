@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `Embark on exciting adventures and explore new horizons.,Discover breathtaking landscapes, vibrant cultures,and unforgettable experiences as you wander the world`
+  /// `Embark on exciting adventures and explore new horizons,Discover breathtaking landscapes,vibrant cultures,and unforgettable experiences as you wander the world`
   String get lets_Travel_desc {
     return Intl.message(
-      'Embark on exciting adventures and explore new horizons.,Discover breathtaking landscapes, vibrant cultures,and unforgettable experiences as you wander the world',
+      'Embark on exciting adventures and explore new horizons,Discover breathtaking landscapes,vibrant cultures,and unforgettable experiences as you wander the world',
       name: 'lets_Travel_desc',
       desc: '',
       args: [],
@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Get ready to plan your dream getaway.'Whether it's a serene beach retreat, a thrilling mountain hike,or an urban escapade, we've got you covered with expert travel tips and recommendations`
+  /// `Get ready to plan your dream getaway,'Whether it's a serene beach retreat,a thrilling mountain hike,or an urban escapade,we've got you covered with expert travel tips and recommendations`
   String get plan_a_trip_desc {
     return Intl.message(
-      'Get ready to plan your dream getaway.\'Whether it\'s a serene beach retreat, a thrilling mountain hike,or an urban escapade, we\'ve got you covered with expert travel tips and recommendations',
+      'Get ready to plan your dream getaway,\'Whether it\'s a serene beach retreat,a thrilling mountain hike,or an urban escapade,we\'ve got you covered with expert travel tips and recommendations',
       name: 'plan_a_trip_desc',
       desc: '',
       args: [],
@@ -100,10 +100,10 @@ class S {
     );
   }
 
-  /// `Fly to your desired destinations with ease.Find the best deals on flights, compare prices, and book your tickets hassle-free. Your journey starts with a simple click`
+  /// `Fly to your desired destinations with ease.Find the best deals on flights,compare prices, and book your tickets hassle-free,Your journey starts with a simple click`
   String get book_a_flight_desc {
     return Intl.message(
-      'Fly to your desired destinations with ease.Find the best deals on flights, compare prices, and book your tickets hassle-free. Your journey starts with a simple click',
+      'Fly to your desired destinations with ease.Find the best deals on flights,compare prices, and book your tickets hassle-free,Your journey starts with a simple click',
       name: 'book_a_flight_desc',
       desc: '',
       args: [],
@@ -180,11 +180,51 @@ class S {
     );
   }
 
-  /// `Forget Password`
+  /// `Email`
+  String get email_register {
+    return Intl.message(
+      'Email',
+      name: 'email_register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Password`
+  String get password_register {
+    return Intl.message(
+      ' Password',
+      name: 'password_register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forget Password ?`
   String get forget_password {
     return Intl.message(
-      'Forget Password',
+      'Forget Password ?',
       name: 'forget_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't worry! It occurs. Please enter the email address linked with your account.`
+  String get forget_password_desc {
+    return Intl.message(
+      'Don\'t worry! It occurs. Please enter the email address linked with your account.',
+      name: 'forget_password_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember Password ?`
+  String get remember_password {
+    return Intl.message(
+      'Remember Password ?',
+      name: 'remember_password',
       desc: '',
       args: [],
     );
@@ -260,10 +300,10 @@ class S {
     );
   }
 
-  /// `Confirm your password`
+  /// `Confirm Password`
   String get confirm_password {
     return Intl.message(
-      'Confirm your password',
+      'Confirm Password',
       name: 'confirm_password',
       desc: '',
       args: [],

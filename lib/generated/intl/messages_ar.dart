@@ -32,11 +32,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر"),
         "continue_button": MessageLookupByLibrary.simpleMessage("استمرار"),
+        "email_register":
+            MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "enter_email":
             MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "enter_password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "forget_password":
-            MessageLookupByLibrary.simpleMessage("نسيان كلمة المرور"),
+            MessageLookupByLibrary.simpleMessage("نسيان كلمة المرور؟"),
+        "forget_password_desc": MessageLookupByLibrary.simpleMessage(
+            "لا تقلق! يحدث. الرجاء إدخال عنوان البريد الإلكتروني المرتبط بحسابك."),
         "have_account":
             MessageLookupByLibrary.simpleMessage("لديك بالفعل حساب؟"),
         "lets_Travel": MessageLookupByLibrary.simpleMessage("هيا نسافر"),
@@ -49,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "password_register": MessageLookupByLibrary.simpleMessage(" كلمة السر"),
         "phone_account": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
         "plan_a_trip": MessageLookupByLibrary.simpleMessage("التخطيط لرحلة"),
         "plan_a_trip_desc": MessageLookupByLibrary.simpleMessage(
@@ -56,6 +61,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "register_button": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "register_desc":
             MessageLookupByLibrary.simpleMessage("مرحبًا! سجل لتبدأ"),
+        "register_way": MessageLookupByLibrary.simpleMessage("انشاء حساب الان"),
+        "remember_password":
+            MessageLookupByLibrary.simpleMessage("تذكر كلمة المرور؟"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "user_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل")
       };

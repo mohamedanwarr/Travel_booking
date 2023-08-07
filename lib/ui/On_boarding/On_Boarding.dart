@@ -13,7 +13,7 @@ class On_Boarding extends StatefulWidget {
 }
 
 class _On_BoardingState extends State<On_Boarding> {
-  int curruntindex = 0;
+ static int curruntindex = 0;
   PageController? _controller;
 
   @override
@@ -58,8 +58,10 @@ class _On_BoardingState extends State<On_Boarding> {
         itemBuilder: (BuildContext context, int index) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
 
             children: [
+              const SizedBox(height: 20),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -70,6 +72,7 @@ class _On_BoardingState extends State<On_Boarding> {
                     //294.94,
                     ),
               ),
+              const SizedBox(height: 20),
               Text(
                 content[index].titleKey,
                 style: const TextStyle(
@@ -79,9 +82,9 @@ class _On_BoardingState extends State<On_Boarding> {
                 ),
               ),
               const SizedBox(height: 20),
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Expanded(
                   child: Text(
                     content[index].discribtionKey,
                     style: const TextStyle(
@@ -90,14 +93,14 @@ class _On_BoardingState extends State<On_Boarding> {
                       fontSize: 18,
                     ),
                   ),
-                ),
+
               ),
               const SizedBox(height: 50),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                       content.length, (index) => buildDot(index, context))),
-              const SizedBox(height: 70),
+              const SizedBox(height: 50),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -137,8 +140,8 @@ class _On_BoardingState extends State<On_Boarding> {
                         width: width * 0.250,
                         height: height * 0.050,
                         decoration: BoxDecoration(
-                            boxShadow: [
-                              const BoxShadow(
+                            boxShadow: const [
+                              BoxShadow(
                                   blurRadius: 1, offset: Offset(0, 1))
                             ],
                             color: const Color(0xFFFEFEFE),
