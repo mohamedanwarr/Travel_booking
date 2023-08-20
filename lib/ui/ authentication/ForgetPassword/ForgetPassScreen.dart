@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../Componant/CustomeButton.dart';
 import '../../../Componant/CustomeText.dart';
 import '../../../Componant/CustomeTextfiled.dart';
-import '../../../Provider/FirebaseServices.dart';
+import '../../../Provider/AuthController/FirebaseServices.dart';
 import '../../../Utilis/utilis.dart';
 import '../../../generated/l10n.dart';
 import '../Login/LoginScreen.dart';
@@ -20,7 +20,7 @@ class ForgetPass extends StatefulWidget {
 
 class _ForgetPassState extends State<ForgetPass> {
   final _formKey = GlobalKey<FormState>();
-  late TextEditingController _emailController = TextEditingController();
+  late final TextEditingController _emailController = TextEditingController();
   @override
   void dispose() {
     _emailController.dispose();
@@ -42,7 +42,7 @@ class _ForgetPassState extends State<ForgetPass> {
           _emailController.text,
         );
         Navigator.pop(context);
-        Utilis.showStyledSnackBar('Password reset email sent successfully',isSuccess: true);
+        Utilis.showStyledSnackBar(S.of(context).reset_pass,isSuccess: true);
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -121,9 +121,9 @@ class _ForgetPassState extends State<ForgetPass> {
                 suffixicon: const Icon(Icons.email,color: Color(0xFF312DA4),),
                 validator: (email) {
                   if (email!.isEmpty) {
-                    return 'Enter your email please';
+                    return S.of(context).valid1_email;
                   } else if (!EmailValidator.validate(email)) {
-                    return 'Enter valid email';
+                    return S.of(context).valid2_email;
                   }
                   return null;
                 },

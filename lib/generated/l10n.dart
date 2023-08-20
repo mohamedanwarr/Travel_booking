@@ -339,6 +339,226 @@ class S {
       args: [],
     );
   }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trips`
+  String get trips {
+    return Intl.message(
+      'Trips',
+      name: 'trips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorite`
+  String get favorite {
+    return Intl.message(
+      'Favorite',
+      name: 'favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back`
+  String get same_user {
+    return Intl.message(
+      'Welcome back',
+      name: 'same_user',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration Successfully`
+  String get register_user {
+    return Intl.message(
+      'Registration Successfully',
+      name: 'register_user',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email please`
+  String get valid1_email {
+    return Intl.message(
+      'Enter your email please',
+      name: 'valid1_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter valid email`
+  String get valid2_email {
+    return Intl.message(
+      'Enter valid email',
+      name: 'valid2_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `'Enter Password please'`
+  String get valid1_pass {
+    return Intl.message(
+      '\'Enter Password please\'',
+      name: 'valid1_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter min. 6 characters`
+  String get valid2_pass {
+    return Intl.message(
+      'Enter min. 6 characters',
+      name: 'valid2_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Confirm Password`
+  String get valid1_confirmpass {
+    return Intl.message(
+      'Enter Confirm Password',
+      name: 'valid1_confirmpass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get valid2_confirmpass {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'valid2_confirmpass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Name please`
+  String get valid1_name {
+    return Intl.message(
+      'Enter Name please',
+      name: 'valid1_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter valid Name`
+  String get valid2_name {
+    return Intl.message(
+      'Enter valid Name',
+      name: 'valid2_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Number please'`
+  String get valid1_phone {
+    return Intl.message(
+      'Enter Number please\'',
+      name: 'valid1_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter valid Number`
+  String get valid2_phone {
+    return Intl.message(
+      'Enter valid Number',
+      name: 'valid2_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Google sign-in Successfully`
+  String get google_true {
+    return Intl.message(
+      'Google sign-in Successfully',
+      name: 'google_true',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Google sign-in cancelled or failed`
+  String get google_false {
+    return Intl.message(
+      'Google sign-in cancelled or failed',
+      name: 'google_false',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Facebook sign-in Successfully`
+  String get facebook_true {
+    return Intl.message(
+      'Facebook sign-in Successfully',
+      name: 'facebook_true',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Facebook sign-in cancelled or failed`
+  String get facebook_false {
+    return Intl.message(
+      'Facebook sign-in cancelled or failed',
+      name: 'facebook_false',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset email sent successfully`
+  String get reset_pass {
+    return Intl.message(
+      'Password reset email sent successfully',
+      name: 'reset_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Code`
+  String get send_code {
+    return Intl.message(
+      'Send Code',
+      name: 'send_code',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

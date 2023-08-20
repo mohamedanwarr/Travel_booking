@@ -4,7 +4,7 @@ class CustomTextFormField extends StatelessWidget {
   final double? width;
   final double? height;
   final String ?hint;
-  final String labelText;
+  final String ?labelText;
   final TextInputType keyboardType;
   bool obscure = false;
   final FocusNode? focusNode;
@@ -20,13 +20,13 @@ class CustomTextFormField extends StatelessWidget {
     this.height,
      this.hint,
     required this.keyboardType,
-    required this.labelText,
+     this.labelText,
     required this.suffixicon,
     required this.obscure,
     this.focusNode,
     this.onChanged,
     this.controller,
-    required this.validator, this.onSaved,
+     this.validator, this.onSaved,
   }) : super(key: key);
 
   @override
@@ -49,7 +49,7 @@ class CustomTextFormField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 borderSide: const BorderSide(style: BorderStyle.solid, width: 2)),
             labelText:labelText ,
-            // hintText: hint,
+             hintText: hint,
             suffixIcon: suffixicon),
         validator: validator,
       ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:travelbooking/Provider/Changelanguage.dart';
+
 import '../../Componant/CustomeButton.dart';
+import '../../Provider/LnaguageAppController/Changelanguage.dart';
 import '../On_boarding/On_Boarding.dart';
 
 class ChooseLang extends StatelessWidget {

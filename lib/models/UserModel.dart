@@ -3,8 +3,10 @@ class User {
   final String? email;
   final String? fullname;
   final String? phone;
+  final String? profileimage;
+  final String? address;
 
-  User({this.uid, this.email, this.fullname, this.phone});
+  User({this.uid, this.email, this.fullname, this.phone,this.profileimage,this.address});
 
 // data from server
   factory User.fromMap(Map<String, dynamic> map) {
@@ -13,6 +15,8 @@ class User {
       email: map['email'],
       fullname: map['fullname'],
       phone: map['phone'],
+      profileimage: map['profileimage'],
+      address: map['address'],
     );
   }
 
@@ -23,6 +27,8 @@ class User {
       'email': email,
       'fullname': fullname,
       'phone': phone,
+      'profileimage': profileimage,
+      'address': address,
     };
   }
 }

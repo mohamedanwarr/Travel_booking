@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
         "another_login": MessageLookupByLibrary.simpleMessage("or Login with"),
         "another_register":
             MessageLookupByLibrary.simpleMessage("or Register with"),
@@ -35,12 +36,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_password":
             MessageLookupByLibrary.simpleMessage("Enter your password"),
+        "facebook_false": MessageLookupByLibrary.simpleMessage(
+            "Facebook sign-in cancelled or failed"),
+        "facebook_true": MessageLookupByLibrary.simpleMessage(
+            "Facebook sign-in Successfully"),
+        "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "forget_password":
             MessageLookupByLibrary.simpleMessage("Forget Password ?"),
         "forget_password_desc": MessageLookupByLibrary.simpleMessage(
             "Don\'t worry! It occurs. Please enter the email address linked with your account."),
+        "google_false": MessageLookupByLibrary.simpleMessage(
+            "Google sign-in cancelled or failed"),
+        "google_true":
+            MessageLookupByLibrary.simpleMessage("Google sign-in Successfully"),
         "have_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "lets_Travel": MessageLookupByLibrary.simpleMessage("Let\'s Travel"),
         "lets_Travel_desc": MessageLookupByLibrary.simpleMessage(
             "Embark on exciting adventures and explore new horizons,Discover breathtaking landscapes,vibrant cultures,and unforgettable experiences as you wander the world"),
@@ -59,10 +70,36 @@ class MessageLookup extends MessageLookupByLibrary {
         "register_button": MessageLookupByLibrary.simpleMessage("Register"),
         "register_desc": MessageLookupByLibrary.simpleMessage(
             "Hello! Register to get started "),
+        "register_user":
+            MessageLookupByLibrary.simpleMessage("Registration Successfully"),
         "register_way": MessageLookupByLibrary.simpleMessage("Register Now"),
         "remember_password":
             MessageLookupByLibrary.simpleMessage("Remember Password ?"),
+        "reset_pass": MessageLookupByLibrary.simpleMessage(
+            "Password reset email sent successfully"),
+        "same_user": MessageLookupByLibrary.simpleMessage("Welcome back"),
+        "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
-        "user_name": MessageLookupByLibrary.simpleMessage("Username")
+        "trips": MessageLookupByLibrary.simpleMessage("Trips"),
+        "user_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "valid1_confirmpass":
+            MessageLookupByLibrary.simpleMessage("Enter Confirm Password"),
+        "valid1_email":
+            MessageLookupByLibrary.simpleMessage("Enter your email please"),
+        "valid1_name":
+            MessageLookupByLibrary.simpleMessage("Enter Name please"),
+        "valid1_pass":
+            MessageLookupByLibrary.simpleMessage("\'Enter Password please\'"),
+        "valid1_phone":
+            MessageLookupByLibrary.simpleMessage("Enter Number please\'"),
+        "valid2_confirmpass":
+            MessageLookupByLibrary.simpleMessage("Passwords do not match"),
+        "valid2_email":
+            MessageLookupByLibrary.simpleMessage("Enter valid email"),
+        "valid2_name": MessageLookupByLibrary.simpleMessage("Enter valid Name"),
+        "valid2_pass":
+            MessageLookupByLibrary.simpleMessage("Enter min. 6 characters"),
+        "valid2_phone":
+            MessageLookupByLibrary.simpleMessage("Enter valid Number")
       };
 }

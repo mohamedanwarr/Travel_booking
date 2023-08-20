@@ -2,19 +2,20 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travelbooking/Componant/CustomeButton.dart';
-import 'package:travelbooking/Provider/FirebaseServices.dart';
+import 'package:travelbooking/Provider/AuthController/FirebaseServices.dart';
 
 import '../../../Componant/AnotherLogin or register.dart';
 import '../../../Componant/Custome Divider.dart';
 import '../../../Componant/CustomeText.dart';
 import '../../../Componant/CustomeTextfiled.dart';
-import '../../../Provider/GoogleSignin.dart';
+import '../../../Provider/LnaguageAppController/Changelanguage.dart';
 import '../../../Utilis/utilis.dart';
 import '../../../generated/l10n.dart';
-import '../../Home Screen/HomeScreen.dart';
+import '../../MainScreen.dart';
 import '../ForgetPassword/ForgetPassScreen.dart';
 import '../sign up/RegisterScreen.dart';
 
@@ -26,8 +27,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  late TextEditingController _emailController = TextEditingController();
-  late TextEditingController _passwordController = TextEditingController();
+  late final TextEditingController _emailController = TextEditingController();
+  late final TextEditingController _passwordController = TextEditingController();
   bool _isHidenPassword = true;
   FocusNode f1 = FocusNode();
   FocusNode f2 = FocusNode();
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  void _handleLogin() async {
+  void _handleLogin(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       showDialog(
         barrierDismissible: false,
@@ -60,10 +61,10 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => HomeScreen(
-                      email: _emailController.text,
+                builder: (context) => MainScreen(
+
                     )));
-        Utilis.showStyledSnackBar('Welcome back',isSuccess: true);
+        Utilis.showStyledSnackBar(S.of(context).same_user,isSuccess: true);
       } on FirebaseException catch (e) {
         Navigator.pop(context);
         // Handle error here and close the dialog
@@ -88,16 +89,42 @@ class _LoginScreenState extends State<LoginScreen> {
     if (user != null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) =>   MainScreen()),
       );
-      Utilis.showStyledSnackBar('Google sign-in Successfully',isSuccess: true);
+      Utilis.showStyledSnackBar(S.of(context).google_true,isSuccess: true);
     } else {
-      Utilis.showStyledSnackBar('Google sign-in cancelled or failed',isSuccess: false);
+      Utilis.showStyledSnackBar(S.of(context).google_false,isSuccess: false);
+    }
+  }
+  void _handleFacebookSigIn() async {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    final authservices = Provider.of<AuthService>(context, listen: false);
+    final user = await authservices.signInWithFacebook();
+
+    Navigator.pop(context); // Close the CircularProgressIndicator dialog
+
+    if (user != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) =>  MainScreen()),
+      );
+      Utilis.showStyledSnackBar(S.of(context).facebook_true,isSuccess: true);
+    } else {
+      Utilis.showStyledSnackBar(S.of(context).facebook_false,isSuccess: false);
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
+    final pass =Provider.of<LanguageProvider>(context,listen: false);
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -146,9 +173,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: _emailController,
                 validator: (email) {
                   if (email!.isEmpty) {
-                    return 'Enter your email please';
+                    return S.of(context).valid1_email;
                   } else if (!EmailValidator.validate(email)) {
-                    return 'Enter valid email';
+                    return S.of(context).valid2_email;
                   }
                   return null;
                 },
@@ -167,28 +194,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     f2.unfocus();
                   }
                 },
-                obscure: _isHidenPassword,
+                obscure: pass.isHidenPassword,
                 width: width * 280,
                 height: height * 0.078,
                 // hint: S.of(context).enter_password,
-                keyboardType: const TextInputType.numberWithOptions(),
+                keyboardType:  TextInputType.text,
                 suffixicon: IconButton(
                   color: const Color(0xFF312DA4),
                   onPressed: () {
-                    setState(() {
-                      _isHidenPassword = !_isHidenPassword;
-                    });
+                    pass.togglePasswordcheck();
                   },
-                  icon: Icon(_isHidenPassword
+                  icon: Icon(pass.isHidenPassword
                       ? Icons.visibility
                       : Icons.visibility_off),
                 ),
                 controller: _passwordController,
                 validator: (val) {
                   if (val!.isEmpty) {
-                    return 'Enter Password please';
+                    return S.of(context).valid1_pass;
                   } else if (val.length < 6) {
-                    return 'Enter min. 6 characters';
+                    return S.of(context).valid2_pass;
                   }
                   // else if(!val.isValidPassword){
                   //   return 'Enter valid Password';
@@ -217,7 +242,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               CustomButton(
                 onPressed: () {
-                  _handleLogin();
+                  _handleLogin(context);
                 },
                 buttonText: S.of(context).login,
               ),
@@ -234,8 +259,13 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  BoxIcon(
-                    image: 'assets/images/facebook-svg.svg',
+                  GestureDetector(
+                    onTap: (){
+                      _handleFacebookSigIn();
+                    },
+                    child: BoxIcon(
+                      image: 'assets/images/facebook-svg.svg',
+                    ),
                   ),
                   GestureDetector(
                     onTap: (){

@@ -2,12 +2,17 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:travelbooking/Provider/Changelanguage.dart';
+
+import 'package:travelbooking/Provider/NavigationBarController/MainScreenProvider.dart';
+
 import 'package:travelbooking/Utilis/utilis.dart';
 import 'package:travelbooking/firebase_options.dart';
 import 'package:travelbooking/ui/%20authentication/UserState/AuthWrapper.dart';
 
-import 'Provider/FirebaseServices.dart';
+import 'Provider/AuthController/FirebaseServices.dart';
+import 'Provider/LnaguageAppController/Changelanguage.dart';
+import 'Provider/ProfileScreenController/Image provider.dart';
+import 'Provider/GetUserDataController/Retriv_User.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -17,9 +22,15 @@ void main() async {
     ChangeNotifierProvider(
       create: (context) => LanguageProvider(),
     ),
-    // ChangeNotifierProvider(
-    //   create: (context) => GoogleSigninProvider(),
-    // ),
+     ChangeNotifierProvider(
+       create: (context) => MainScreenProvider(),
+     ),
+    ChangeNotifierProvider(
+      create: (context) => RetriveUser(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => Imageprovider(),
+    ),
     Provider<AuthService>(create: (_) => AuthService())
   ], child: const TravelBooking()));
 }
@@ -35,13 +46,13 @@ class TravelBooking extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AuthWrapper(),
+      home: const AuthWrapper(),
       // locale: _locale,
       debugShowCheckedModeBanner: false,
       locale: context.watch<LanguageProvider>().selectedLanguage == 'ar'
           ? const Locale('ar')
           : const Locale('en'),
-      localizationsDelegates: [
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

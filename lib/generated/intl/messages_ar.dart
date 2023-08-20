@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("الحساب"),
         "another_login":
             MessageLookupByLibrary.simpleMessage("التسجيل عن طريق"),
         "another_register":
@@ -37,12 +38,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_email":
             MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "enter_password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+        "facebook_false": MessageLookupByLibrary.simpleMessage(
+            "تم إلغاء تسجيل الدخول إلى Facebook أو فشل"),
+        "facebook_true": MessageLookupByLibrary.simpleMessage(
+            "تم تسجيل الدخول إلى Facebook بنجاح"),
+        "favorite": MessageLookupByLibrary.simpleMessage("المفضل"),
         "forget_password":
             MessageLookupByLibrary.simpleMessage("نسيان كلمة المرور؟"),
         "forget_password_desc": MessageLookupByLibrary.simpleMessage(
             "لا تقلق! يحدث. الرجاء إدخال عنوان البريد الإلكتروني المرتبط بحسابك."),
+        "google_false": MessageLookupByLibrary.simpleMessage(
+            "تم إلغاء تسجيل الدخول إلى Google أو فشل"),
+        "google_true": MessageLookupByLibrary.simpleMessage(
+            "تم تسجيل الدخول إلى Google بنجاح"),
         "have_account":
             MessageLookupByLibrary.simpleMessage("لديك بالفعل حساب؟"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
         "lets_Travel": MessageLookupByLibrary.simpleMessage("هيا نسافر"),
         "lets_Travel_desc": MessageLookupByLibrary.simpleMessage(
             "انطلق في مغامرات مثيرة واستكشف آفاقًا جديدة. واكتشف المناظر الطبيعية الخلابة والثقافات النابضة بالحياة والتجارب التي لا تُنسى وأنت تتجول في العالم"),
@@ -61,10 +72,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "register_button": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "register_desc":
             MessageLookupByLibrary.simpleMessage("مرحبًا! سجل لتبدأ"),
+        "register_user": MessageLookupByLibrary.simpleMessage("التسجيل بنجاح"),
         "register_way": MessageLookupByLibrary.simpleMessage("انشاء حساب الان"),
         "remember_password":
             MessageLookupByLibrary.simpleMessage("تذكر كلمة المرور؟"),
+        "reset_pass": MessageLookupByLibrary.simpleMessage(
+            "تم إرسال البريد الإلكتروني الخاص بإعادة تعيين كلمة المرور بنجاح"),
+        "same_user": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
+        "send_code": MessageLookupByLibrary.simpleMessage("أرسل الرمز"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
-        "user_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل")
+        "trips": MessageLookupByLibrary.simpleMessage("الرحلات"),
+        "user_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+        "valid1_confirmpass":
+            MessageLookupByLibrary.simpleMessage("أدخل تأكيد كلمة المرور"),
+        "valid1_email": MessageLookupByLibrary.simpleMessage(
+            "أدخل بريدك الإلكتروني من فضلك"),
+        "valid1_name":
+            MessageLookupByLibrary.simpleMessage("أدخل الاسم من فضلك"),
+        "valid1_pass":
+            MessageLookupByLibrary.simpleMessage("أدخل كلمة المرور من فضلك"),
+        "valid1_phone":
+            MessageLookupByLibrary.simpleMessage("أدخل الرقم من فضلك"),
+        "valid2_confirmpass":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور غير مطابقة"),
+        "valid2_email": MessageLookupByLibrary.simpleMessage(
+            "أدخل بريدًا إلكترونيًا صالحًا"),
+        "valid2_name":
+            MessageLookupByLibrary.simpleMessage("أدخل اسمًا الصحيح"),
+        "valid2_pass":
+            MessageLookupByLibrary.simpleMessage("أدخل دقيقة. 6 أحرف"),
+        "valid2_phone": MessageLookupByLibrary.simpleMessage("أدخل رقمًا صحيح")
       };
 }

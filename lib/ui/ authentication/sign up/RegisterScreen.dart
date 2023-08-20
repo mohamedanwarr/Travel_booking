@@ -10,10 +10,11 @@ import '../../../Componant/Custome Divider.dart';
 import '../../../Componant/CustomeButton.dart';
 import '../../../Componant/CustomeText.dart';
 import '../../../Componant/CustomeTextfiled.dart';
-import '../../../Provider/FirebaseServices.dart';
+import '../../../Provider/AuthController/FirebaseServices.dart';
 
+import '../../../Provider/LnaguageAppController/Changelanguage.dart';
 import '../../../generated/l10n.dart';
-import '../../Home Screen/HomeScreen.dart';
+import '../../MainScreen.dart';
 import '../Login/LoginScreen.dart';
 
 class Register extends StatefulWidget {
@@ -24,12 +25,12 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  late TextEditingController _emailController = TextEditingController();
-  late TextEditingController _passwordController = TextEditingController();
-  late TextEditingController _confirmPasswordController =
+  late final TextEditingController _emailController = TextEditingController();
+  late final TextEditingController _passwordController = TextEditingController();
+  late final TextEditingController _confirmPasswordController =
       TextEditingController();
-  late TextEditingController _fullnameController = TextEditingController();
-  late TextEditingController _phoneController = TextEditingController();
+  late final TextEditingController _fullnameController = TextEditingController();
+  late final TextEditingController _phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   bool _isHidenPassword = true;
@@ -76,9 +77,9 @@ class _RegisterState extends State<Register> {
           // Registration successful, navigate to HomeScreen
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
+            MaterialPageRoute(builder: (context) => MainScreen()),
           );
-          Utilis.showStyledSnackBar('Registration Successfully',isSuccess: true);
+          Utilis.showStyledSnackBar(S.of(context).register_user,isSuccess: true);
         }
       } on FirebaseException catch (e) {
         // Handle the sign-up error and close the CircularProgressIndicator dialog
@@ -104,16 +105,41 @@ class _RegisterState extends State<Register> {
     if (user != null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) =>   MainScreen()),
       );
-      Utilis.showStyledSnackBar('Google sign-in Successfully',isSuccess: true);
+      Utilis.showStyledSnackBar(S.of(context).google_true,isSuccess: true);
     } else {
-      Utilis.showStyledSnackBar('Google sign-in cancelled or failed',isSuccess: false);
+      Utilis.showStyledSnackBar(S.of(context).google_false,isSuccess: false);
+    }
+  }
+  void _handleFacebookSigIn() async {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    final authservices = Provider.of<AuthService>(context, listen: false);
+    final user = await authservices.signInWithFacebook();
+
+    Navigator.pop(context); // Close the CircularProgressIndicator dialog
+
+    if (user != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) =>  MainScreen()),
+      );
+      Utilis.showStyledSnackBar(S.of(context).facebook_true,isSuccess: true);
+    } else {
+      Utilis.showStyledSnackBar(S.of(context).facebook_false,isSuccess: false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final pass= Provider.of<LanguageProvider>(context);
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -159,9 +185,9 @@ class _RegisterState extends State<Register> {
                 },
                 validator: (String? val) {
                   if (val == null || val.isEmpty) {
-                    return 'Enter Name please';
+                    return S.of(context).valid1_name;
                   } else if (!val.isValidName) {
-                    return 'Enter valid Name';
+                    return S.of(context).valid1_name;
                   }
                   return null;
                 },
@@ -187,9 +213,9 @@ class _RegisterState extends State<Register> {
                 ),
                 validator: (String? val) {
                   if (val == null || val.isEmpty) {
-                    return 'Enter Number please';
+                    return S.of(context).valid1_phone;
                   } else if (!val.isValidPhone) {
-                    return 'Enter valid Number';
+                    return S.of(context).valid2_phone;
                   }
                   return null;
                 },
@@ -215,9 +241,9 @@ class _RegisterState extends State<Register> {
                 ),
                 validator: (String? val) {
                   if (val == null || val.isEmpty) {
-                    return 'Enter email please';
+                    return S.of(context).valid1_email;
                   } else if (!val.isValidEmail) {
-                    return 'Enter valid email';
+                    return S.of(context).valid2_email;
                   }
                   return null;
                 },
@@ -236,23 +262,21 @@ class _RegisterState extends State<Register> {
                   }
                 },
                 keyboardType: const TextInputType.numberWithOptions(),
-                obscure: _isHidenPassword,
+                obscure: pass.isHidenPassword,
                 suffixicon: IconButton(
                   color: const Color(0xFF312DA4),
                   onPressed: () {
-                    setState(() {
-                      _isHidenPassword = !_isHidenPassword;
-                    });
+                    pass.togglePasswordcheck();
                   },
-                  icon: Icon(_isHidenPassword
+                  icon: Icon( pass.isHidenPassword
                       ? Icons.visibility
                       : Icons.visibility_off),
                 ),
                 validator: (val) {
                   if (val!.isEmpty) {
-                    return 'Enter Password please';
+                    return S.of(context).valid1_pass;
                   } else if (val.length < 6) {
-                    return 'Enter min. 6 characters';
+                    return S.of(context).valid2_pass;
                   }
                   return null;
                 },
@@ -270,25 +294,23 @@ class _RegisterState extends State<Register> {
                   }
                 },
                 keyboardType: const TextInputType.numberWithOptions(),
-                obscure: _isHidenPassword,
+                obscure: pass.isHidenPassword,
                 suffixicon: IconButton(
                   color: const Color(0xFF312DA4),
                   onPressed: () {
-                    setState(() {
-                      _isHidenPassword = !_isHidenPassword;
-                    });
+                    pass.togglePasswordcheck();
                   },
-                  icon: Icon(_isHidenPassword
+                  icon: Icon( pass.isHidenPassword
                       ? Icons.visibility
                       : Icons.visibility_off),
                 ),
                 validator: (String? val) {
                   if (val!.isEmpty) {
-                    return 'Enter Confirm Password';
+                    return S.of(context).valid1_confirmpass;
                   } else if (!val.isValidPasswordConfirm(
                       _passwordController.text,
                       _confirmPasswordController.text)) {
-                    return 'Passwords do not match';
+                    return S.of(context).valid2_confirmpass;
                   }
                   return null;
                 },
@@ -319,8 +341,13 @@ class _RegisterState extends State<Register> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  BoxIcon(
-                    image: 'assets/images/facebook-svg.svg',
+                  GestureDetector(
+                    onTap: (){
+                      _handleFacebookSigIn();
+                    },
+                    child: BoxIcon(
+                      image: 'assets/images/facebook-svg.svg',
+                    ),
                   ),
                   GestureDetector(
                     onTap: (){
