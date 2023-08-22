@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../Utilis/Constants.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
@@ -14,7 +16,7 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: const Color(0xFF312DA4),
+          backgroundColor:  MyConstant.maincolor,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
           textStyle: const TextStyle(
             fontSize: 20,

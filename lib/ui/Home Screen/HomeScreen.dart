@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
+import '../../generated/l10n.dart';
 import '../ProfileScreen/Widget/mainAppBar.dart';
 import '../../Componant/CustomeTextfiled.dart';
-import '../../Provider/AuthController/FirebaseServices.dart';
 import '../../Provider/GetUserDataController/Retriv_User.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   final getuser = Provider.of<RetriveUser>(context, listen: false);
   final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
-      backgroundColor: const Color(0xFFE2E2E2),
+      backgroundColor: MyConstant.backgroundcolor,
       body: FutureBuilder(
         future:getuser.getUserData(user!.uid) ,
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -28,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             );
           }else if(snapshot.hasError){
             return const Center(child: Text('Error loading user data'));
-          }else if(!snapshot.hasData || snapshot == null){
+          }else if(!snapshot.hasData){
             return const Center(child: Text('User data not found'));
           }else{
             Map<String, dynamic> userData = snapshot.data!;
@@ -45,8 +46,8 @@ class HomeScreen extends StatelessWidget {
                     width:width*.155 ,
                     height: height*20,
                     keyboardType: TextInputType.text,
-                    labelText: 'Search for trip',
-                    obscure: false, suffixicon: const Icon (FlutterIcons.search_faw),
+                    labelText: S.of(context).search,
+                    obscure: false, suffixicon: MyConstant.searchicon
                   )
                 ],
               ),

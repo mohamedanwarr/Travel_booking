@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../Componant/CustomeButton.dart';
 import '../../Provider/LnaguageAppController/Changelanguage.dart';
+import '../../Utilis/Constants.dart';
 import '../On_boarding/On_Boarding.dart';
 
 class ChooseLang extends StatelessWidget {
@@ -17,10 +18,10 @@ class ChooseLang extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                 Text(
                   'Choose your Language',
                   style: TextStyle(
-                      color: Colors.black,
+                      color: MyConstant.maincolortext,
                       fontWeight: FontWeight.bold,
                       fontSize: 28),
                 ),

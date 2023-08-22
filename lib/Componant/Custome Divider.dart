@@ -1,38 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 class Dividerr extends StatelessWidget {
   const Dividerr(
       {super.key,
-        this.endIndent,
-        required this.color,
-        required this.thickness,
-        this.indent, required this.text});
+  required this.text});
 
-  final Color color;
   final String text;
-  final double? endIndent;
-  final double? indent;
-  final double thickness;
-
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: Divider(
-            endIndent: endIndent,
-            color: color,
-            thickness: thickness,
+            endIndent: 6,
+            color: MyConstant.subcolortext,
+            thickness: 2,
           ),
         ),
         Text(
           text,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: MyConstant.maincolortext),
         ),
         Expanded(
           child: Divider(
-            indent: indent,
-            color: color,
-            thickness: thickness,
+            indent: 6,
+            color: MyConstant.subcolortext,
+            thickness: 2,
           ),
         ),
       ],

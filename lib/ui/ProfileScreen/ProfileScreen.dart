@@ -9,6 +9,8 @@ import '../ authentication/Login/LoginScreen.dart';
 
 import '../../Provider/AuthController/FirebaseServices.dart';
 import '../../Provider/GetUserDataController/Retriv_User.dart';
+import '../../Utilis/Constants.dart';
+import '../../generated/l10n.dart';
 import 'EditAccountScreen.dart';
 import 'Widget/Changephoto.dart';
 import 'Widget/CustomeContainer.dart';
@@ -22,7 +24,7 @@ class Profile extends StatelessWidget {
     final getuser = Provider.of<RetriveUser>(context, listen: false);
     final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
-      backgroundColor: const Color(0xFFE2E2E2),
+      backgroundColor: MyConstant.backgroundcolor,
       body: FutureBuilder<Map<String, dynamic>?>(
           future: getuser.getUserData(user!.uid),
           builder: (BuildContext context,
@@ -48,9 +50,7 @@ class Profile extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      '${userData['fullname']}' != null
-                          ? '${userData['fullname']}'
-                          : "",
+                      '${userData['fullname']}',
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 20),
                     ),
@@ -58,20 +58,18 @@ class Profile extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      '${userData['email']}' != null
-                          ? '${userData['email']}'
-                          : "",
+                      '${userData['email']}',
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
-                          color: Colors.grey),
+                          color:  Color(0xFF2E3E5C)),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
                     CustomeContainer(
                       iconlable: FlutterIcons.person_outline_mdi,
-                      textlable: 'Edit Account',
+                      textlable: S.of(context).edit_account,
                       onTap: () {
                         Navigator.push(
                             context,
@@ -81,7 +79,7 @@ class Profile extends StatelessWidget {
                     ),
                      CustomeContainer(
                         iconlable: FlutterIcons.lock_open_mdi,
-                        textlable: 'Account Security',
+                        textlable: S.of(context).account_security,
                     onTap: (){
                       Navigator.push(
                           context,
@@ -90,25 +88,26 @@ class Profile extends StatelessWidget {
                     },),
                      CustomeContainer(
                         iconlable: FlutterIcons.language_ent,
-                        textlable: 'Language',
+                        textlable: S.of(context).language,
                     onTap: (){
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const LanguageEdit()));
                     },),
-                    const CustomeContainer(
-                        iconlable: FlutterIcons.help_mdi, textlable: 'Help'),
+                     CustomeContainer(
+                        iconlable: FlutterIcons.help_mdi, textlable: S.of(context).help),
                     CustomeContainer(
                       iconlable: FlutterIcons.log_out_ent,
-                      textlable: 'Logout',
+                      textlable: S.of(context).logout_account,
                       onTap: () {
                         authService.signOut().then((value) =>
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoginScreen())));
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => const LoginScreen()),
+                                  (Route<dynamic> route) => false, // This will remove all previous routes from the stack
+                            ),
+                        );
                       },
                     ),
                   ],

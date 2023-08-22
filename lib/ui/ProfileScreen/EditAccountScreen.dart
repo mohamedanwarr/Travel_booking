@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 import 'package:travelbooking/Utilis/utilis.dart';
 
 import '../../Componant/CustomeAppBar.dart';
@@ -44,7 +45,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
       context: context,
       barrierDismissible: false,
       builder: (context) {
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       },
@@ -76,7 +77,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
           await Provider.of<RetriveUser>(context, listen: false)
               .updateUserData(user.uid, updateData);
 
-      await Future.delayed(Duration(seconds: 4));
+      await Future.delayed(const Duration(seconds: 4));
       Navigator.pop(context); // Close the loading dialog
 
       if (updateUserData != null) {
@@ -100,10 +101,10 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFE2E2E2),
       resizeToAvoidBottomInset: false,
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(80),
+      appBar:  PreferredSize(
+          preferredSize: const Size.fromHeight(80),
           child: CustomeAppBar(
-            title: 'Edit Account',
+            label: S.of(context).edit_account,
           )),
       body: FutureBuilder(
         future: getuser.getUserData(user!.uid),
@@ -161,10 +162,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                         controller: _fullnameController,
                         keyboardType: TextInputType.name,
                         hint: userData['fullname'] ?? S.of(context).user_name,
-                        suffixicon: const Icon(
-                          Icons.person,
-                          color: Color(0xFF312DA4),
-                        ),
+                        suffixicon: MyConstant.personicon,
                         obscure: false,
                       ),
                       const SizedBox(
@@ -174,10 +172,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                         controller: _emailController,
                         keyboardType: TextInputType.emailAddress,
                         hint: userData['email'] ?? S.of(context).user_name,
-                        suffixicon: const Icon(
-                          Icons.email,
-                          color: Color(0xFF312DA4),
-                        ),
+                        suffixicon: MyConstant.emailicon,
                         obscure: false,
                       ),
                       const SizedBox(
@@ -187,10 +182,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                         controller: _phoneController,
                         keyboardType: TextInputType.phone,
                         hint: userData['phone'] ?? "",
-                        suffixicon: const Icon(
-                          Icons.phone,
-                          color: Color(0xFF312DA4),
-                        ),
+                        suffixicon: MyConstant.phoneicon,
                         obscure: false,
                       ),
                       const SizedBox(
@@ -200,10 +192,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                         controller: _adressController,
                         keyboardType: TextInputType.text,
                         hint: userData['address'] ?? "",
-                        suffixicon: const Icon(
-                          Icons.place,
-                          color: Color(0xFF312DA4),
-                        ),
+                        suffixicon: MyConstant.adressicon,
                         obscure: false,
                       ),
                       const SizedBox(
@@ -214,7 +203,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                           _onSave(context);
                           Navigator.pop(context);
                         },
-                        buttonText: 'Save',
+                        buttonText: S.of(context).save,
                       )
                     ],
                   ),

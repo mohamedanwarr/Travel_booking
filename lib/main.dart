@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'package:travelbooking/Provider/NavigationBarController/MainScreenProvider.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
 import 'package:travelbooking/Utilis/utilis.dart';
 import 'package:travelbooking/firebase_options.dart';
@@ -11,6 +12,7 @@ import 'package:travelbooking/ui/%20authentication/UserState/AuthWrapper.dart';
 
 import 'Provider/AuthController/FirebaseServices.dart';
 import 'Provider/LnaguageAppController/Changelanguage.dart';
+import 'Provider/NavigationBarController/OnBoarding.dart';
 import 'Provider/ProfileScreenController/Image provider.dart';
 import 'Provider/GetUserDataController/Retriv_User.dart';
 import 'generated/l10n.dart';
@@ -18,13 +20,21 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter is initialized.
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  LanguageProvider languageProvider = LanguageProvider(); // Load the selected language
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
-      create: (context) => LanguageProvider(),
+      create: (context) {
+        LanguageProvider();
+        languageProvider.loadSelectedLanguage();
+        return languageProvider;
+      } , // Load the saved language
     ),
      ChangeNotifierProvider(
        create: (context) => MainScreenProvider(),
      ),
+    ChangeNotifierProvider(
+      create: (context) => OnBoardingscreen(),
+    ),
     ChangeNotifierProvider(
       create: (context) => RetriveUser(),
     ),
@@ -40,16 +50,18 @@ class TravelBooking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selected = context.watch<LanguageProvider>();
     return MaterialApp(
       scaffoldMessengerKey: Utilis.messageKey,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: selected.selectedLanguage == 'ar' ? 'Cairo' : 'PlayfairDisplay',
+        colorScheme: ColorScheme.fromSeed(seedColor: MyConstant.maincolor),
         useMaterial3: true,
       ),
       home: const AuthWrapper(),
       // locale: _locale,
       debugShowCheckedModeBanner: false,
-      locale: context.watch<LanguageProvider>().selectedLanguage == 'ar'
+      locale: selected.selectedLanguage == 'ar'
           ? const Locale('ar')
           : const Locale('en'),
       localizationsDelegates: const [

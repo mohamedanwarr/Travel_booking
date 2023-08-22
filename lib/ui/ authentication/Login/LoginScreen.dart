@@ -4,9 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:icons_flutter/icons_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:travelbooking/Componant/CustomeButton.dart';
 import 'package:travelbooking/Provider/AuthController/FirebaseServices.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
 import '../../../Componant/AnotherLogin or register.dart';
 import '../../../Componant/Custome Divider.dart';
@@ -29,7 +31,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late final TextEditingController _emailController = TextEditingController();
   late final TextEditingController _passwordController = TextEditingController();
-  bool _isHidenPassword = true;
+  final bool _isHidenPassword = true;
   FocusNode f1 = FocusNode();
   FocusNode f2 = FocusNode();
   final _formKey = GlobalKey<FormState>();
@@ -61,9 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => MainScreen(
-
-                    )));
+                builder: (context) => MainScreen()));
         Utilis.showStyledSnackBar(S.of(context).same_user,isSuccess: true);
       } on FirebaseException catch (e) {
         Navigator.pop(context);
@@ -159,10 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 keyboardType: TextInputType.emailAddress,
                 obscure: false,
-                suffixicon: const Icon(
-                  Icons.email,
-                  color: Color(0xFF312DA4),
-                ),
+                suffixicon:  MyConstant.emailicon,
                 focusNode: f1,
                 onChanged: (String newvalue) {
                   if (newvalue == newvalue.length) {
@@ -200,13 +197,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 // hint: S.of(context).enter_password,
                 keyboardType:  TextInputType.text,
                 suffixicon: IconButton(
-                  color: const Color(0xFF312DA4),
+                  color: MyConstant.maincolor,
                   onPressed: () {
                     pass.togglePasswordcheck();
                   },
                   icon: Icon(pass.isHidenPassword
-                      ? Icons.visibility
-                      : Icons.visibility_off),
+                      ? FlutterIcons.visibility_mdi
+                      :FlutterIcons.visibility_off_mdi),
                 ),
                 controller: _passwordController,
                 validator: (val) {
@@ -225,9 +222,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 children: [
                   TextButton(
-                      style: const ButtonStyle(
+                      style:  ButtonStyle(
                           foregroundColor:
-                              MaterialStatePropertyAll(Color(0xFF312DA4))),
+                              MaterialStatePropertyAll(MyConstant.maincolor)),
                       onPressed: () {
                         Navigator.push(
                             context,
@@ -250,8 +247,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 25,
               ),
               Dividerr(
-                color: Colors.grey, thickness: 2,endIndent: 6,
-                  indent: 6, text: S.of(context).another_login,
+                text: S.of(context).another_login,
               ),
               const SizedBox(
                 height: 15,

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
 import 'package:travelbooking/Utilis/Validatorclass.dart';
 import 'package:travelbooking/Utilis/utilis.dart';
@@ -33,7 +34,7 @@ class _RegisterState extends State<Register> {
   late final TextEditingController _phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  bool _isHidenPassword = true;
+  final bool _isHidenPassword = true;
   FocusNode f1 = FocusNode();
   FocusNode f2 = FocusNode();
   FocusNode f3 = FocusNode();
@@ -172,10 +173,7 @@ class _RegisterState extends State<Register> {
                 controller: _fullnameController,
                 keyboardType: TextInputType.name,
                 obscure: false,
-                suffixicon: const Icon(
-                  Icons.person,
-                  color: Color(0xFF312DA4),
-                ),
+                suffixicon:MyConstant.personicon,
                 focusNode: f1,
                 onChanged: (String newvalue) {
                   if (newvalue == newvalue.length) {
@@ -207,10 +205,7 @@ class _RegisterState extends State<Register> {
                 },
                 keyboardType: TextInputType.phone,
                 obscure: false,
-                suffixicon: const Icon(
-                  Icons.phone,
-                  color: Color(0xFF312DA4),
-                ),
+                suffixicon: MyConstant.phoneicon,
                 validator: (String? val) {
                   if (val == null || val.isEmpty) {
                     return S.of(context).valid1_phone;
@@ -235,10 +230,7 @@ class _RegisterState extends State<Register> {
                 },
                 keyboardType: TextInputType.emailAddress,
                 obscure: false,
-                suffixicon: const Icon(
-                  Icons.email,
-                  color: Color(0xFF312DA4),
-                ),
+                suffixicon: MyConstant.emailicon,
                 validator: (String? val) {
                   if (val == null || val.isEmpty) {
                     return S.of(context).valid1_email;
@@ -264,7 +256,7 @@ class _RegisterState extends State<Register> {
                 keyboardType: const TextInputType.numberWithOptions(),
                 obscure: pass.isHidenPassword,
                 suffixicon: IconButton(
-                  color: const Color(0xFF312DA4),
+                  color:  MyConstant.maincolor,
                   onPressed: () {
                     pass.togglePasswordcheck();
                   },
@@ -296,7 +288,7 @@ class _RegisterState extends State<Register> {
                 keyboardType: const TextInputType.numberWithOptions(),
                 obscure: pass.isHidenPassword,
                 suffixicon: IconButton(
-                  color: const Color(0xFF312DA4),
+                  color: MyConstant.maincolor,
                   onPressed: () {
                     pass.togglePasswordcheck();
                   },
@@ -329,10 +321,6 @@ class _RegisterState extends State<Register> {
                 height: 5,
               ),
               Dividerr(
-                color: Colors.grey,
-                thickness: 2,
-                endIndent: 6,
-                indent: 6,
                 text: S.of(context).another_register,
               ),
               const SizedBox(

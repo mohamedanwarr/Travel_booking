@@ -559,6 +559,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Where are you go?`
+  String get where {
+    return Intl.message(
+      'Where are you go?',
+      name: 'where',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for trip`
+  String get search {
+    return Intl.message(
+      'Search for trip',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Account`
+  String get edit_account {
+    return Intl.message(
+      'Edit Account',
+      name: 'edit_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Security`
+  String get account_security {
+    return Intl.message(
+      'Account Security',
+      name: 'account_security',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help`
+  String get help {
+    return Intl.message(
+      'Help',
+      name: 'help',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `logout`
+  String get logout_account {
+    return Intl.message(
+      'logout',
+      name: 'logout_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hey`
+  String get hey {
+    return Intl.message(
+      'Hey',
+      name: 'hey',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

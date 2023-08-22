@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "account_security":
+            MessageLookupByLibrary.simpleMessage("Account Security"),
         "another_login": MessageLookupByLibrary.simpleMessage("or Login with"),
         "another_register":
             MessageLookupByLibrary.simpleMessage("or Register with"),
@@ -32,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "continue_button": MessageLookupByLibrary.simpleMessage("Continue"),
+        "edit_account": MessageLookupByLibrary.simpleMessage("Edit Account"),
         "email_register": MessageLookupByLibrary.simpleMessage("Email"),
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_password":
@@ -51,7 +54,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google sign-in Successfully"),
         "have_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "help": MessageLookupByLibrary.simpleMessage("Help"),
+        "hey": MessageLookupByLibrary.simpleMessage("Hey"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lets_Travel": MessageLookupByLibrary.simpleMessage("Let\'s Travel"),
         "lets_Travel_desc": MessageLookupByLibrary.simpleMessage(
             "Embark on exciting adventures and explore new horizons,Discover breathtaking landscapes,vibrant cultures,and unforgettable experiences as you wander the world"),
@@ -59,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_button": MessageLookupByLibrary.simpleMessage("Login"),
         "login_desc": MessageLookupByLibrary.simpleMessage(
             "Welcome back!  Glad to see you, Again!"),
+        "logout_account": MessageLookupByLibrary.simpleMessage("logout"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
@@ -78,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reset_pass": MessageLookupByLibrary.simpleMessage(
             "Password reset email sent successfully"),
         "same_user": MessageLookupByLibrary.simpleMessage("Welcome back"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "search": MessageLookupByLibrary.simpleMessage("Search for trip"),
         "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "trips": MessageLookupByLibrary.simpleMessage("Trips"),
@@ -100,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "valid2_pass":
             MessageLookupByLibrary.simpleMessage("Enter min. 6 characters"),
         "valid2_phone":
-            MessageLookupByLibrary.simpleMessage("Enter valid Number")
+            MessageLookupByLibrary.simpleMessage("Enter valid Number"),
+        "where": MessageLookupByLibrary.simpleMessage("Where are you go?")
       };
 }

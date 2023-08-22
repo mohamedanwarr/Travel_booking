@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
+import '../../../Componant/CustomeAppBar.dart';
 import '../../../Componant/CustomeButton.dart';
 import '../../../Componant/CustomeText.dart';
 import '../../../Componant/CustomeTextfiled.dart';
@@ -61,6 +63,9 @@ class _ForgetPassState extends State<ForgetPass> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(80),
+          child: CustomeAppBar(label: '',)),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -68,25 +73,7 @@ class _ForgetPassState extends State<ForgetPass> {
           key: _formKey,
           child: Column(
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 41,
-                    height: 41,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: const Color(0xFF312DA4),width: 2)
-                    ),
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.pop(context);
-                      },
-                        child: const Icon(Icons.arrow_back_ios_new,color: Colors.black,)),
-                  )
-                ],
-              ),
-              const SizedBox(height: 60,),
+
                Row(
                 children: [
                   Text(
@@ -118,7 +105,7 @@ class _ForgetPassState extends State<ForgetPass> {
               CustomTextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
-                suffixicon: const Icon(Icons.email,color: Color(0xFF312DA4),),
+                suffixicon: MyConstant.emailicon,
                 validator: (email) {
                   if (email!.isEmpty) {
                     return S.of(context).valid1_email;

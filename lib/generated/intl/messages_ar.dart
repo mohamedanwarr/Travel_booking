@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("الحساب"),
+        "account_security": MessageLookupByLibrary.simpleMessage("أمن الحساب"),
         "another_login":
             MessageLookupByLibrary.simpleMessage("التسجيل عن طريق"),
         "another_register":
@@ -33,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر"),
         "continue_button": MessageLookupByLibrary.simpleMessage("استمرار"),
+        "edit_account": MessageLookupByLibrary.simpleMessage("تعديل الحساب"),
         "email_register":
             MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "enter_email":
@@ -53,7 +55,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم تسجيل الدخول إلى Google بنجاح"),
         "have_account":
             MessageLookupByLibrary.simpleMessage("لديك بالفعل حساب؟"),
+        "help": MessageLookupByLibrary.simpleMessage("مساعدة"),
+        "hey": MessageLookupByLibrary.simpleMessage("أهلا"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
+        "language": MessageLookupByLibrary.simpleMessage("تغير اللغة"),
         "lets_Travel": MessageLookupByLibrary.simpleMessage("هيا نسافر"),
         "lets_Travel_desc": MessageLookupByLibrary.simpleMessage(
             "انطلق في مغامرات مثيرة واستكشف آفاقًا جديدة. واكتشف المناظر الطبيعية الخلابة والثقافات النابضة بالحياة والتجارب التي لا تُنسى وأنت تتجول في العالم"),
@@ -61,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_button": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "login_desc": MessageLookupByLibrary.simpleMessage(
             "مرحبًا بعودتك! سعيد لرؤيتك مرة أخرى!"),
+        "logout_account": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
@@ -79,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reset_pass": MessageLookupByLibrary.simpleMessage(
             "تم إرسال البريد الإلكتروني الخاص بإعادة تعيين كلمة المرور بنجاح"),
         "same_user": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "search": MessageLookupByLibrary.simpleMessage("ابحث عن رحلتك"),
         "send_code": MessageLookupByLibrary.simpleMessage("أرسل الرمز"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "trips": MessageLookupByLibrary.simpleMessage("الرحلات"),
@@ -101,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أدخل اسمًا الصحيح"),
         "valid2_pass":
             MessageLookupByLibrary.simpleMessage("أدخل دقيقة. 6 أحرف"),
-        "valid2_phone": MessageLookupByLibrary.simpleMessage("أدخل رقمًا صحيح")
+        "valid2_phone": MessageLookupByLibrary.simpleMessage("أدخل رقمًا صحيح"),
+        "where": MessageLookupByLibrary.simpleMessage("الى اين تذهب؟")
       };
 }

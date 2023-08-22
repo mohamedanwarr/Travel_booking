@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
 import '../../../Provider/NavigationBarController/MainScreenProvider.dart';
 import '../../../generated/l10n.dart';
@@ -77,7 +78,7 @@ class BottomNav extends StatelessWidget {
                           : 0,
                       decoration: BoxDecoration(
                         color: index == MainScreenProvider.pageIndex
-                            ? const Color(0xFF312DA4)
+                            ?  MyConstant.maincolor
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(50),
                       ),

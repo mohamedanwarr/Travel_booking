@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../Utilis/Constants.dart';
 class CustomeText extends StatelessWidget {
   const CustomeText({
     super.key, required this.text,required this.onTap, required this.texttap,
@@ -15,10 +17,10 @@ class CustomeText extends StatelessWidget {
         children: [
           Text(
             text,
-            style: const TextStyle(
+            style:  TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
-                color: Colors.black),
+                color: MyConstant.maincolortext),
           ),
           const SizedBox(
             width: 3,
@@ -27,10 +29,10 @@ class CustomeText extends StatelessWidget {
             onTap: onTap,
             child: Text(
               texttap,
-              style: const TextStyle(
+              style:  TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
-                  color: Color(0xFF312DA4)),
+                  color: MyConstant.maincolor),
             ),
           )
         ],

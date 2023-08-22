@@ -10,7 +10,7 @@ class Change_photo extends StatelessWidget {
 
   final Widget? container;
   final void Function()? ontap;
-  final dynamic? backgroundImage;
+  final dynamic backgroundImage;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class Change_photo extends StatelessWidget {
             ),
             child: CircleAvatar(
               backgroundColor: Colors.transparent,
-              backgroundImage: backgroundImage,
+              backgroundImage: backgroundImage??AssetImage('assets/images/User-Profile.png'),
             ),
           ),
           if (container != null)

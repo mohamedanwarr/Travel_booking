@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
 import 'package:travelbooking/ui/On_boarding/listonboarding.dart';
 
@@ -87,9 +88,9 @@ class _On_BoardingState extends State<On_Boarding> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
                     content[index].discribtionKey,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontWeight: FontWeight.w500,
-                      color: Colors.grey,
+                      color: MyConstant.subcolortext,
                       fontSize: 18,
                     ),
                   ),
@@ -109,13 +110,13 @@ class _On_BoardingState extends State<On_Boarding> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
-                        style: const ButtonStyle(
+                        style:  ButtonStyle(
                             foregroundColor:
-                                MaterialStatePropertyAll(Color(0xFF312DA4)),
+                                MaterialStatePropertyAll(MyConstant.maincolor),
                             elevation: MaterialStatePropertyAll(5),
                             textStyle: MaterialStatePropertyAll(TextStyle(
                                 fontSize: 15,
-                                color: Color(0xFF312DA4),
+                                color: MyConstant.maincolor,
                                 fontWeight: FontWeight.bold))),
                         onPressed: () {
                           Navigator.push(
@@ -149,9 +150,9 @@ class _On_BoardingState extends State<On_Boarding> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const CircleAvatar(
+                             CircleAvatar(
                               radius: 15,
-                              backgroundColor: Color(0xFF312DA4),
+                              backgroundColor:MyConstant.maincolor,
                               child: Icon(
                                 Icons.arrow_forward_ios_outlined,
                                 color: Colors.white,
@@ -163,7 +164,7 @@ class _On_BoardingState extends State<On_Boarding> {
                                   ? S.of(context).continue_button
                                   : S.of(context).next,
                               style: const TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
+                                  fontWeight: FontWeight.bold, fontSize: 14),
                             )
                           ],
                         ),
@@ -187,7 +188,7 @@ class _On_BoardingState extends State<On_Boarding> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: curruntindex == index
-              ? const Color(0xFF312DA4)
+              ? MyConstant.maincolor
               : const Color(0xFFCCD1FB)),
     );
   }

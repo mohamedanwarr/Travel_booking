@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 class CustomeAppBar extends StatelessWidget {
   const CustomeAppBar({
     super.key,
-    required this.title,
+     required this.label,
   });
 
-  final String title;
+  final String ?label;
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +27,14 @@ class CustomeAppBar extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: const Color(0xFF312DA4), width: 2)),
-              child: const Icon(
-                Icons.arrow_back_ios_new,
-                color: Colors.black,
-              ),
+                  border: Border.all(color: MyConstant.maincolor, width: 2)),
+              child: MyConstant.arrowicon
             ),
           ),
         ),
         title: Text(
-          title,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          "${label}",
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),

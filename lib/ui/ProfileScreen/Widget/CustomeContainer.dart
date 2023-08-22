@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons_flutter/icons_flutter.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 class CustomeContainer extends StatelessWidget {
   const CustomeContainer({
     super.key,
@@ -32,7 +32,7 @@ class CustomeContainer extends StatelessWidget {
               children: [
                 Icon(
                   (iconlable),
-                  color: const Color(0xFF312DA4),
+                  color: MyConstant.maincolor,
                   size: 27,
                 ),
                 const SizedBox(
@@ -44,8 +44,8 @@ class CustomeContainer extends StatelessWidget {
                     style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
                   ),
                 ),
-                const Icon((FlutterIcons.arrow_right_mco),
-                    color: Color(0xFF312DA4), size: 27)
+                // const Icon((FlutterIcons.arrow_right_mco),
+                //     color: Color(0xFF312DA4), size: 27)
               ],
             ),
           ),

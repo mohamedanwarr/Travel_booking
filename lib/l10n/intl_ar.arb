@@ -49,5 +49,14 @@
   "facebook_true": "تم تسجيل الدخول إلى Facebook بنجاح",
   "facebook_false": "تم إلغاء تسجيل الدخول إلى Facebook أو فشل",
   "reset_pass": "تم إرسال البريد الإلكتروني الخاص بإعادة تعيين كلمة المرور بنجاح",
-  "send_code": "أرسل الرمز"
+  "send_code": "أرسل الرمز",
+  "where": "الى اين تذهب؟",
+  "search": "ابحث عن رحلتك",
+  "edit_account": "تعديل الحساب",
+  "account_security": "أمن الحساب",
+  "language": "تغير اللغة",
+  "help": "مساعدة",
+  "logout_account": "تسجيل خروج",
+  "save": "حفظ",
+  "hey": "أهلا"
 }

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 import 'package:travelbooking/Utilis/utilis.dart';
 
 import '../../Componant/CustomeAppBar.dart';
@@ -8,7 +9,6 @@ import '../../Componant/CustomeButton.dart';
 import '../../Componant/CustomeTextfiled.dart';
 import '../../Provider/LnaguageAppController/Changelanguage.dart';
 import '../../generated/l10n.dart';
-import 'EditAccountScreen.dart';
 
 class AccountSecurity extends StatefulWidget {
   const AccountSecurity({Key? key}) : super(key: key);
@@ -74,10 +74,10 @@ class _AccountSecurityState extends State<AccountSecurity> {
     return Scaffold(
       backgroundColor: const Color(0xFFE2E2E2),
       resizeToAvoidBottomInset: false,
-      appBar:   PreferredSize(
-        preferredSize: Size.fromHeight(100),
+      appBar:    PreferredSize(
+        preferredSize: const Size.fromHeight(100),
         child: CustomeAppBar(
-          title: 'AccountSecurity',
+          label: S.of(context).account_security,
         ),
       ),
       body: Center(
@@ -93,7 +93,7 @@ class _AccountSecurityState extends State<AccountSecurity> {
                   keyboardType:  TextInputType.text,
                   obscure: pass.isHidenPassword,
                   suffixicon: IconButton(
-                    color: const Color(0xFF312DA4),
+                    color: MyConstant.maincolor,
                     icon: Icon(pass.isHidenPassword
                         ? Icons.visibility
                         : Icons.visibility_off),
@@ -117,7 +117,7 @@ class _AccountSecurityState extends State<AccountSecurity> {
                   keyboardType:  TextInputType.text,
                   obscure: pass.isHidenPassword,
                   suffixicon: IconButton(
-                    color: const Color(0xFF312DA4),
+                    color: MyConstant.maincolor,
                     icon: Icon(pass.isHidenPassword
                         ? Icons.visibility
                         : Icons.visibility_off),
@@ -142,7 +142,7 @@ class _AccountSecurityState extends State<AccountSecurity> {
                   keyboardType:  TextInputType.text,
                   obscure: pass.isHidenPassword,
                   suffixicon: IconButton(
-                    color: const Color(0xFF312DA4),
+                    color: MyConstant.maincolor,
                     onPressed: () {
                       pass.togglePasswordcheck();
                     },
@@ -168,7 +168,7 @@ class _AccountSecurityState extends State<AccountSecurity> {
                   onPressed: () {
                     _updatePassword();
                   },
-                  buttonText: 'Save',
+                  buttonText: S.of(context).save,
                 )
               ],
             ),

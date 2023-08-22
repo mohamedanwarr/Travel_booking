@@ -49,5 +49,14 @@
   "facebook_true": "Facebook sign-in Successfully",
   "facebook_false": "Facebook sign-in cancelled or failed",
   "reset_pass": "Password reset email sent successfully",
-  "send_code": "Send Code"
+  "send_code": "Send Code",
+  "where": "Where are you go?",
+  "search": "Search for trip",
+  "edit_account": "Edit Account",
+  "account_security": "Account Security",
+  "language": "Language",
+  "help": "Help",
+  "logout_account": "logout",
+  "save": "Save",
+  "hey": "Hey"
 }

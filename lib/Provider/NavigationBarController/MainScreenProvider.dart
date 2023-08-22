@@ -8,4 +8,8 @@ class MainScreenProvider extends ChangeNotifier{
     _PageIndex=newIndex;
     notifyListeners();
   }
+  void setpageIndex (int newIndex){
+    _PageIndex=newIndex;
+    
+  }
 }

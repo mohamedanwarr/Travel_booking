@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travelbooking/Provider/LnaguageAppController/Changelanguage.dart';
+import 'package:travelbooking/Utilis/Constants.dart';
 
 import '../../Componant/CustomeAppBar.dart';
 import '../../Componant/CustomeButton.dart';
+import '../../generated/l10n.dart';
 
 class LanguageEdit extends StatelessWidget {
   const LanguageEdit({Key? key}) : super(key: key);
@@ -14,10 +16,10 @@ class LanguageEdit extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFE2E2E2),
       resizeToAvoidBottomInset: false,
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(80),
+      appBar:  PreferredSize(
+          preferredSize: const Size.fromHeight(80),
           child: CustomeAppBar(
-            title: 'Language',
+            label: S.of(context).language,
           )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +39,7 @@ class LanguageEdit extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: choose.isContainer1Selected
                           ? const Color(0xffeffffff)
-                          : const Color(0xFF312DA4),
+                          : MyConstant.maincolor,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
                         BoxShadow(
@@ -71,7 +73,7 @@ class LanguageEdit extends StatelessWidget {
                     width: 180,
                     decoration: BoxDecoration(
                       color: choose.isContainer1Selected
-                          ? const Color(0xFF312DA4)
+                          ? MyConstant.maincolor
                           : const Color(0xffeffffff),
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
@@ -85,7 +87,7 @@ class LanguageEdit extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Arabic',
+                          'العرابيه',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
@@ -102,17 +104,28 @@ class LanguageEdit extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           CustomButton(
-            onPressed: () {
-              if (choose.isContainer1Selected) {
-                choose.changeLanguage('ar');
-                Navigator.pop(context);// Pass the English language code
-              } else {
-                choose.changeLanguage('en');
-                Navigator.pop(context); // Pass the Arabic language code
+            onPressed: () async{
+              showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (context) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+              try{
+                if (choose.isContainer1Selected) {
+                  await choose.saveSelectedLanguage('ar'); // Save the selected language
+                  choose.changeLanguage('ar'); // Update the selected language
+                } else {
+                  await choose.saveSelectedLanguage('en'); // Save the selected language
+                  choose.changeLanguage('en'); // Update the selected language
+                }
+                Navigator.pop(context); // Close the dialog
+              } catch (e) {
+                Navigator.pop(context); // Close the dialog
               }
-
             },
-            buttonText: 'Save',
+            buttonText: S.of(context).save,
           ),
         ],
       ),
